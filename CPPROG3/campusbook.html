@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusBook | Library Management</title>
+    <link rel="icon" type="image/png" href="logo.png">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="campusbook.css">
+    <link rel="icon" type="image/png" href="logo.png?v=1">
+    
+</head>
+<body>
+    
+
+    <header class="navbar">
+        <div class="navbar-content">
+            <div class="navbar-logo">
+                <div class="logo-icon">
+                    <img src="logo.png" alt="CampusBook Logo" style="width: 35px; height: 35px; object-fit: contain;">
+                </div>
+                <div class="logo-text">
+                    <h1>CampusBook</h1>
+                    <p>library management system</p>
+                </div>
+            </div>
+            <div class="navbar-actions">
+                <div class="theme-selector">
+                    <button class="theme-toggle" id="themeToggle" title="Change Theme">
+                        <i class="fas fa-palette"></i>
+                    </button>
+                    <div class="theme-dropdown" id="themeDropdown">
+                        <div class="theme-option" data-theme="light">
+                            <i class="fas fa-sun"></i>
+                            <span>Light</span>
+                        </div>
+                        <div class="theme-option" data-theme="dark">
+                            <i class="fas fa-moon"></i>
+                            <span>Dark</span>
+                        </div>
+                        <div class="theme-option" data-theme="earth">
+                            <i class="fas fa-leaf"></i>
+                            <span>Earth Tones</span>
+                        </div>
+                        <div class="theme-option" data-theme="ocean">
+                            <i class="fas fa-water"></i>
+                            <span>Ocean</span>
+                        </div>
+                        <div class="theme-option" data-theme="aurora">
+                            <i class="fas fa-sparkles"></i>
+                            <span>Aurora</span>
+                        </div>
+                        <div class="theme-option" data-theme="deepearth">
+                            <i class="fas fa-mountain"></i>
+                            <span>Deep Earth</span>
+                        </div>
+                    </div>
+                </div>
+                <button class="user-btn">
+                    <i class="fas fa-user-circle"></i>
+                    <span>Admin Portal</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <aside class="sidebar" id="sidebar">
+        <nav class="sidebar-nav">
+            <a href="#" class="sidebar-item active" data-page="dashboard">
+                <i class="fas fa-chart-pie"></i>
+                <span class="sidebar-text">Dashboard</span>
+            </a>
+            <a href="#" class="sidebar-item" data-page="reservations">
+                <i class="fas fa-list-check"></i>
+                <span class="sidebar-text">Reservations</span>
+            </a>
+            <a href="#" class="sidebar-item" data-page="history">
+                <i class="fas fa-history"></i>
+                <span class="sidebar-text">History Logs</span>
+            </a>
+            <a href="#" class="sidebar-item" data-page="analytics">
+                <i class="fas fa-chart-line"></i>
+                <span class="sidebar-text">Analytics</span>
+            </a>
+        </nav>
+    </aside>
+
+    <main class="main-content">
+        
+        <div class="page active" id="dashboard">
+            <div class="page-header">
+                <h2>Campus Overview</h2>
+                <p>Real-time control and library session monitoring</p>
+            </div>
+
+            <div class="stats-grid">
+                <div class="stat-card gradient-card-1">
+                    <div class="stat-header">
+                        <span class="stat-label">Overall Borrowed</span>
+                        <div class="stat-icon icon-blue"><i class="fas fa-database"></i></div>
+                    </div>
+                    <div class="stat-value" id="totalBookings">0</div>
+                    <div class="stat-trend"><i class="fas fa-arrow-up"></i> All time history</div>
+                </div>
+
+                <div class="stat-card gradient-card-2">
+                    <div class="stat-header">
+                        <span class="stat-label">Active Now</span>
+                        <div class="stat-icon icon-green"><i class="fas fa-user-check"></i></div>
+                    </div>
+                    <div class="stat-value" id="activeBookings">0</div>
+                    <div class="stat-trend"><i class="fas fa-circle"></i> Real-time sessions</div>
+                </div>
+
+                <div class="stat-card gradient-card-3">
+                    <div class="stat-header">
+                        <span class="stat-label">System Cleanup</span>
+                        <div class="stat-icon icon-purple"><i class="fas fa-bolt"></i></div>
+                    </div>
+                    <div class="cleanup-content">
+                        <div class="stat-value" id="expiredCount">0</div>
+                        <p class="cleanup-subtitle">Expired sessions detected</p>
+                    </div>
+                    <button onclick="archiveAllExpired()" class="cleanup-btn" id="cleanupBtn" disabled>
+                        <i class="fas fa-broom"></i> Master Archive
+                    </button>
+                </div>
+            </div>
+
+            <div class="dashboard-grid-bottom">
+                <div class="card glass-card">
+                    <div class="card-header activity-header">
+                        <h3><i class="fas fa-clock-rotate-left"></i> Recent Activity</h3>
+                        <span class="live-indicator">
+                            <span class="pulse-dot"></span> Live Monitoring
+                        </span>
+                    </div>
+                    <div class="card-content scrollable" id="recentBookingsList">
+                        <p class="empty-state">No recent activity detected.</p>
+                    </div>
+                </div>
+
+                <div class="card glass-card">
+                    <div class="card-header">
+                        <h3><i class="fas fa-chart-pie"></i> Usage Distribution</h3>
+                    </div>
+                    <div class="card-content chart-content">
+                        <canvas id="dashboardStatusChart"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card glass-card mt-24">
+                <div class="card-header">
+                    <h3><i class="fas fa-door-open"></i> Room Capacity Monitor</h3>
+                    <span class="live-indicator"><span class="pulse-dot"></span> Real-time</span>
+                </div>
+                <div class="card-content">
+                    <div class="room-capacity-grid" id="roomCapacityGrid"></div>
+                </div>
+            </div>
+
+            <div class="system-health-bar">
+                <div class="health-item">
+                    <i class="fas fa-circle status-online"></i> 
+                    Server Status: <span class="health-value">Online</span>
+                </div>
+                <div class="health-item">
+                    <i class="fas fa-database"></i> 
+                    Database: <span class="health-value">Connected</span>
+                </div>
+                <div class="health-item ml-auto">
+                    <button onclick="exportToCSV()" class="export-btn">
+                        <i class="fas fa-file-export"></i> Export Logs (.CSV)
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="reservations">
+            <div class="page-header">
+                <h2>Manage Bookings</h2>
+                <p>Add or remove student reservations</p>
+            </div>
+
+            <div class="card glass-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-plus-circle"></i> Add New Booking</h3>
+                </div>
+                <div class="card-content">
+                    <form id="bookingForm" class="booking-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Student Name</label>
+                                <input type="text" id="studentName" placeholder="e.g. Alex Smith" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Select Laboratory / Room</label>
+                                <select id="room" name="room" required>
+                                    <option value="" disabled selected>Choose a location...</option>
+                                    <option value="101">Room 101</option>
+                                    <option value="102">Room 102</option>
+                                    <option value="Lab 1">Lab 1</option>
+                                    <option value="Lab 2">Lab 2</option>
+                                    <option value="Lab 3">Lab 3</option>
+                                    <option value="Lab 4">Lab 4</option>
+                                    <option value="BG2.233">BG2.233</option>
+                                    <option value="Media Lab">Media Lab</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Book Title</label>
+                                <input type="text" id="bookTitle" placeholder="e.g. Data Structures 101" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Time Slot (Hours)</label>
+                                <input type="number" step="0.5" id="timeSlot" placeholder="e.g. 2" min="0.5" max="24" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn-primary">
+                            <i class="fas fa-plus"></i> Add to CampusBook
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="card glass-card mt-24">
+                <div class="card-header">
+                    <h3><i class="fas fa-users"></i> Active Students</h3>
+                    <div class="search-box">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="studentSearch" placeholder="Search student or book...">
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="bookings-table">
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Borrowed Book</th>
+                                <th>Room</th>
+                                <th>Time (Hrs)</th>
+                                <th>Time Remaining</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="bookingsTableBody">
+                            <tr><td colspan="7" class="empty-state">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="history">
+            <div class="page-header">
+                <h2>History Logs</h2>
+                <p>A record of all finished library sessions</p>
+            </div>
+            <div class="card glass-card">
+                <div class="card-header">
+                    <h3><i class="fas fa-history"></i> Completed Sessions</h3>
+                    <div class="sort-controls">
+                        <label for="sortBy">Sort by:</label>
+                        <select id="sortBy" onchange="sortHistory()">
+                            <option value="date-desc">Date (Newest First)</option>
+                            <option value="date-asc">Date (Oldest First)</option>
+                            <option value="student-asc">Student (A-Z)</option>
+                            <option value="student-desc">Student (Z-A)</option>
+                            <option value="book-asc">Book Title (A-Z)</option>
+                            <option value="book-desc">Book Title (Z-A)</option>
+                            <option value="room-asc">Room (A-Z)</option>
+                            <option value="room-desc">Room (Z-A)</option>
+                            <option value="duration-desc">Duration (Longest First)</option>
+                            <option value="duration-asc">Duration (Shortest First)</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="table-container">
+                    <table class="bookings-table">
+                        <thead>
+                            <tr>
+                                <th>Student</th>
+                                <th>Book Title</th>
+                                <th>Room</th>
+                                <th>Duration</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody id="historyTableBody">
+                            <tr><td colspan="7" class="empty-state">Loading...</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="page" id="analytics">
+            <div class="page-header">
+                <h2>Analytics Terminal</h2>
+                <p>Real-time usage insights derived from your database</p>
+            </div>
+
+            <div class="stats-grid analytics-stats">
+                <div class="stat-card gradient-card-3">
+                    <div class="stat-header">
+                        <span class="stat-label">Total Entries</span>
+                        <div class="stat-icon icon-purple"><i class="fas fa-users"></i></div>
+                    </div>
+                    <div class="stat-value" id="totalCount">0</div>
+                </div>
+                <div class="stat-card gradient-card-4">
+                    <div class="stat-header">
+                        <span class="stat-label">Long Sessions (2h+)</span>
+                        <div class="stat-icon icon-green"><i class="fas fa-check"></i></div>
+                    </div>
+                    <div class="stat-value" id="completedCount">0</div>
+                </div>
+                <div class="stat-card gradient-card-5">
+                    <div class="stat-header">
+                        <span class="stat-label">Short Sessions</span>
+                        <div class="stat-icon icon-orange"><i class="fas fa-clock"></i></div>
+                    </div>
+                    <div class="stat-value" id="progressCount">0</div>
+                </div>
+                <div class="stat-card gradient-card-6">
+                    <div class="stat-header">
+                        <span class="stat-label">Avg. Time</span>
+                        <div class="stat-icon icon-blue"><i class="fas fa-hourglass-half"></i></div>
+                    </div>
+                    <div class="stat-value" id="avgDuration">0.0h</div>
+                </div>
+            </div>
+
+            <div class="card glass-card mt-24">
+                <div class="card-header">
+                    <h3><i class="fas fa-chart-line"></i> Laboratory Usage Trend</h3>
+                    <span class="chart-badge">Last 10 Sessions</span>
+                </div>
+                <div class="chart-wrapper">
+                    <canvas id="usageLineChart"></canvas>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <div class="logo-icon-small">
+                        <img src="logo.png" alt="Logo" style="width: 20px; height: 20px; margin-right: 8px;">
+                    </div>
+                    <span>CampusBook</span>
+                </div>
+                <p class="footer-desc">Modern library management system for educational institutions</p>
+            </div>
+            <div class="footer-section">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#" data-page="dashboard">Dashboard</a></li>
+                    <li><a href="#" data-page="reservations">Reservations</a></li>
+                    <li><a href="#" data-page="history">History Logs</a></li>
+                    <li><a href="#" data-page="analytics">Analytics</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>Connect</h4>
+                <div class="social-links">
+                    <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 CampusBook. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="toast" id="toast"></div>
+
+    <script src="campusbook.js"></script>
+    <script src="history.js"></script>
+   
+</body>
+</html>
