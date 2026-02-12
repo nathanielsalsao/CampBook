@@ -18,5 +18,10 @@
   "bugs": {
     "url": "https://github.com/nathanielsalsao/CampBook/issues"
   },
-  "homepage": "https://github.com/nathanielsalsao/CampBook#readme"
+  "homepage": "https://github.com/nathanielsalsao/CampBook#readme",
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "mongoose": "^9.2.1"
+  }
 }
