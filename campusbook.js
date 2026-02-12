@@ -4,7 +4,7 @@
 
 // Configuration
 const CONFIG = {
-    API_URL: 'http://localhost:3000/api/bookings',
+    API_URL: 'https://campbook-api.onrender.com/api/bookings',
     ROOM_CAPACITIES: {
         '101': 30,
         '102': 25,
