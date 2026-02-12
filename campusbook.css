@@ -1,5 +1,5 @@
 /* ============================================
-   CAMPUSBOOK - ENHANCED MULTI-THEME UI
+   CAMPUSBOOK - NOT RESPONSIVE YET
    ============================================ */
 
 /* --- ROOT VARIABLES (Light Theme - Default) --- */
@@ -37,24 +37,24 @@
 
 /* --- ENHANCED DARK THEME --- */
 [data-theme="dark"] {
-    /* Deep Dark Backgrounds with Rich Colors */
+
     --bg-primary: #0a0a0f;
     --bg-secondary: #121218;
     --bg-card: rgba(18, 18, 24, 0.98);
     
-    /* High Contrast Text */
+ 
     --text-primary: #f0f0ff;
     --text-secondary: #b8b8d1;
     --text-muted: #8888a8;
     
-    /* Vibrant Neon Accents */
+
     --accent-blue: #60a5fa;
     --accent-purple: #a78bfa;
     --accent-pink: #f472b6;
     --accent-green: #34d399;
     --accent-orange: #fb923c;
     
-    /* Enhanced Gradients with Glow */
+ 
     --gradient-primary: linear-gradient(135deg, #667eea 0%, #a78bfa 50%, #c084fc 100%);
     --gradient-secondary: linear-gradient(135deg, #f093fb 0%, #f472b6 50%, #ec4899 100%);
     --gradient-blue: linear-gradient(135deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
@@ -62,7 +62,7 @@
     --gradient-orange: linear-gradient(135deg, #fb923c 0%, #f97316 50%, #ea580c 100%);
     --gradient-purple: linear-gradient(135deg, #c084fc 0%, #a78bfa 50%, #8b5cf6 100%);
     
-    /* Dark UI Elements - Reduced Shadows */
+
     --border-color: rgba(167, 139, 250, 0.2);
     --shadow-sm: 0 1px 4px rgba(167, 139, 250, 0.1);
     --shadow-md: 0 2px 10px rgba(167, 139, 250, 0.15);
@@ -72,24 +72,24 @@
 
 /* --- IMPROVED EARTH TONES THEME --- */
 [data-theme="earth"] {
-    /* Rich Earth Backgrounds */
+
     --bg-primary: #f5f1e8;
     --bg-secondary: #fdfbf7;
     --bg-card: rgba(253, 251, 247, 0.95);
     
-    /* Natural Text Colors */
+
     --text-primary: #2d2416;
     --text-secondary: #6b5d4f;
     --text-muted: #9d8b7a;
     
-    /* Natural Accent Colors */
+   
     --accent-blue: #5c7a5f;
     --accent-purple: #7d5e5e;
     --accent-pink: #b87860;
     --accent-green: #6b8e4e;
     --accent-orange: #d4964e;
     
-    /* Earthy Gradients */
+  
     --gradient-primary: linear-gradient(135deg, #8b7355 0%, #a0826d 50%, #b8956f 100%);
     --gradient-secondary: linear-gradient(135deg, #d4964e 0%, #e0a85d 50%, #edb75f 100%);
     --gradient-blue: linear-gradient(135deg, #5c7a5f 0%, #6b8e4e 50%, #7a9e5d 100%);
@@ -97,7 +97,7 @@
     --gradient-orange: linear-gradient(135deg, #d4964e 0%, #e0a85d 50%, #f2cc8f 100%);
     --gradient-purple: linear-gradient(135deg, #a0826d 0%, #b8956f 50%, #d4a574 100%);
     
-    /* Earth UI Elements */
+
     --border-color: rgba(139, 115, 85, 0.2);
     --shadow-sm: 0 1px 3px rgba(139, 115, 85, 0.08);
     --shadow-md: 0 2px 6px rgba(139, 115, 85, 0.1);
@@ -106,24 +106,24 @@
 
 /* --- IMPROVED OCEAN THEME --- */
 [data-theme="ocean"] {
-    /* Deep Ocean Backgrounds */
+
     --bg-primary: #e8f4f8;
     --bg-secondary: #f8fcfd;
     --bg-card: rgba(248, 252, 253, 0.95);
     
-    /* Ocean Text Colors */
+ 
     --text-primary: #0a3d4d;
     --text-secondary: #2d5f6d;
     --text-muted: #5b8a99;
     
-    /* Ocean Accent Colors */
+  
     --accent-blue: #0891b2;
     --accent-purple: #5b8a99;
     --accent-pink: #e5717d;
     --accent-green: #14b8a6;
     --accent-orange: #fb7185;
     
-    /* Ocean Gradients */
+
     --gradient-primary: linear-gradient(135deg, #0e7490 0%, #0891b2 50%, #06b6d4 100%);
     --gradient-secondary: linear-gradient(135deg, #e5717d 0%, #fb7185 50%, #fda4af 100%);
     --gradient-blue: linear-gradient(135deg, #0e7490 0%, #0891b2 50%, #22d3ee 100%);
@@ -131,7 +131,7 @@
     --gradient-orange: linear-gradient(135deg, #fb7185 0%, #fda4af 50%, #fecdd3 100%);
     --gradient-purple: linear-gradient(135deg, #5b8a99 0%, #7eb0bf 50%, #a1d3e0 100%);
     
-    /* Ocean UI Elements */
+ 
     --border-color: rgba(14, 116, 144, 0.2);
     --shadow-sm: 0 1px 3px rgba(14, 116, 144, 0.08);
     --shadow-md: 0 2px 6px rgba(14, 116, 144, 0.1);
@@ -140,24 +140,24 @@
 
 /* --- NEW AURORA THEME (Darker Pastels for Better Readability) --- */
 [data-theme="aurora"] {
-    /* Darker Aurora Backgrounds for Text Visibility */
+ 
     --bg-primary: #1a1f2e;
     --bg-secondary: #252b3d;
     --bg-card: rgba(37, 43, 61, 0.98);
     
-    /* Enhanced Text Colors for Readability */
+    
     --text-primary: #f5f5f7;
     --text-secondary: #d4c1ec;
     --text-muted: #b8b8d1;
     
-    /* Aurora Accent Colors - Adjusted for Dark Background */
+   
     --accent-blue: #A9DEF9;
     --accent-purple: #D4C1EC;
     --accent-pink: #F2C6DE;
     --accent-green: #B8E8D3;
     --accent-orange: #FCF6BD;
     
-    /* Aurora Gradients */
+
     --gradient-primary: linear-gradient(135deg, #B8E8D3 0%, #D4C1EC 50%, #F2C6DE 100%);
     --gradient-secondary: linear-gradient(135deg, #F2C6DE 0%, #fda4af 50%, #fecdd3 100%);
     --gradient-blue: linear-gradient(135deg, #A9DEF9 0%, #89CFF0 50%, #6eb5d0 100%);
@@ -165,7 +165,7 @@
     --gradient-orange: linear-gradient(135deg, #FCF6BD 0%, #f5e79e 50%, #edd87f 100%);
     --gradient-purple: linear-gradient(135deg, #D4C1EC 0%, #c0a8e0 50%, #a78bfa 100%);
     
-    /* Aurora UI Elements - Soft Glow */
+ 
     --border-color: rgba(212, 193, 236, 0.25);
     --shadow-sm: 0 1px 4px rgba(184, 232, 211, 0.15);
     --shadow-md: 0 2px 10px rgba(184, 232, 211, 0.2);
@@ -175,24 +175,24 @@
 
 /* --- NEW DEEP EARTH & EMBERS THEME --- */
 [data-theme="deepearth"] {
-    /* Deep Earth Backgrounds */
+
     --bg-primary: #12192B;
     --bg-secondary: #1B3022;
     --bg-card: rgba(27, 48, 34, 0.95);
     
-    /* Earth Embers Text Colors */
+
     --text-primary: #f5e6d3;
     --text-secondary: #d4b896;
     --text-muted: #a89376;
     
-    /* Deep Earth Accent Colors */
+
     --accent-blue: #CC7722;
     --accent-purple: #A52A2A;
     --accent-pink: #7E191B;
     --accent-green: #6b8e4e;
     --accent-orange: #CC7722;
     
-    /* Deep Earth Gradients */
+ 
     --gradient-primary: linear-gradient(135deg, #A52A2A 0%, #7E191B 50%, #5d1415 100%);
     --gradient-secondary: linear-gradient(135deg, #CC7722 0%, #d4964e 50%, #e0a85d 100%);
     --gradient-blue: linear-gradient(135deg, #12192B 0%, #1e2a42 50%, #2a3b59 100%);
@@ -200,7 +200,7 @@
     --gradient-orange: linear-gradient(135deg, #CC7722 0%, #d98b3a 50%, #e69f52 100%);
     --gradient-purple: linear-gradient(135deg, #A52A2A 0%, #b83e3e 50%, #cb5252 100%);
     
-    /* Deep Earth UI Elements - Warm Glow */
+
     --border-color: rgba(165, 42, 42, 0.3);
     --shadow-sm: 0 1px 4px rgba(204, 119, 34, 0.15);
     --shadow-md: 0 2px 10px rgba(204, 119, 34, 0.2);
@@ -259,12 +259,12 @@ body {
 .logo-icon {
     width: 48px;
     height: 48px;
-    background: transparent; /* Remove the gradient background */
+    background: transparent;
     border-radius: 12px;
     display: flex;
     align-items: center;
     justify-content: center;
-    overflow: hidden; /* Keeps everything tidy */
+    overflow: hidden;
 }
 .logo-icon img {
     width: 100%;
@@ -301,7 +301,7 @@ body {
     gap: 12px;
 }
 
-/* Theme Selector */
+
 .theme-selector {
     position: relative;
 }
@@ -402,10 +402,10 @@ body {
 }
 
 /* --- SIDEBAR --- */
-/* Add this to the SIDEBAR section of your CSS */
+
 .sidebar-header {
     width: 80px;
-    height: 70px; /* Matches navbar height for symmetry */
+    height: 70px; 
     display: flex;
     justify-content: center;
     align-items: center;
@@ -413,10 +413,10 @@ body {
 }
 
 .sidebar-header img {
-    width: 45px; /* Leaves 17.5px padding on each side of the 80px sidebar */
+    width: 45px;
     height: 45px;
     object-fit: contain;
-    /* This creates the glow seen in your "aurora" and "dark" themes */
+
     filter: drop-shadow(0 0 10px rgba(74, 222, 128, 0.4));
 }
 .sidebar {
@@ -1380,7 +1380,7 @@ body {
 .logo-icon-small {
     width: 36px;
     height: 36px;
-    background: transparent; /* Remove the var(--gradient-primary) */
+    background: transparent; 
     display: flex;
     align-items: center;
     justify-content: center;
@@ -1390,7 +1390,7 @@ body {
     width: 100%;
     height: 100%;
     object-fit: contain;
-    /* Optional: add a tiny drop shadow if it's lost on dark backgrounds */
+
     filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
 }
 .footer-logo span {

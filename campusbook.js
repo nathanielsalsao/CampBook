@@ -121,7 +121,7 @@ function changeTheme(theme) {
 
     // Update charts if they exist
     if (State.durChart) updateChartTheme();
-    loadBookings(); // Refresh to update pie chart colors
+    loadBookings(); 
 }
 
 function updateThemeUI() {
