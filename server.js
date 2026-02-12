@@ -6,7 +6,7 @@ app.use(cors());
 app.use(express.json());
 
 // --- DATABASE CONNECTION ---
-const mongoURI = "mongodb+srv://test_DB:nEb9rPtpnuF9FyGI@cluster0.dh5iah8.mongodb.net/CampusBookingDB";
+const mongoURI = process.env.MONGODB_URI || "mongodb+srv://test_DB:nEb9rPtpnuF9FyGI@cluster0.dh5iah8.mongodb.net/CampusBookingDB";
 mongoose.connect(mongoURI)
     .then(() => console.log('Connected to MongoDB Atlas'))
     .catch(err => console.error('Could not connect to MongoDB:', err));
@@ -86,7 +86,7 @@ app.delete('/api/bookings/:id', async (req, res) => {
 });
 
 // --- START SERVER ---
-const PORT = 3000;
+const PORT = process.env.PORT || 3000; // Use Render's port or 3000 locally
 app.listen(PORT, () => {
-    console.log(`Server running on http://localhost:${PORT}`);
+    console.log(`Server running on port ${PORT}`);
 });
