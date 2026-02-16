@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const word = "CAMPUSBOOK";
     const duration = 3000;
 
-    // Generate Letters
+
     word.split('').forEach((char, i) => {
         const span = document.createElement('span');
         span.className = 'letter';
