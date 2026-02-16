@@ -11,10 +11,31 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
     <link rel="stylesheet" href="campusbook.css">
     <link rel="icon" type="image/png" href="logo.png?v=1">
+    <link rel="stylesheet" href="ent.css">
     
 </head>
 <body>
-    
+
+<div id="entrance-wrapper">
+    <div class="entrance-content">
+        <div class="base-plate"></div>
+
+        <div class="main-branding">
+            <div class="logo-outer">
+                <img src="logo.png" alt="Logo" class="main-logo">
+            </div>
+            <div id="word-box">
+                </div>
+        </div>
+        
+        <div class="loader-container">
+            <div class="progress-track">
+                <div id="loadBar"></div>
+            </div>
+            <div id="status">Welcome to CampusBook</div>
+        </div>
+    </div>
+</div>
 
     <header class="navbar">
         <div class="navbar-content">
@@ -388,6 +409,7 @@
 
     <script src="campusbook.js"></script>
     <script src="history.js"></script>
+    <script src="ent.js"></script>
    
 </body>
 </html>
